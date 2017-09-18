@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Login from './components/Login.js'
+import Header from './components/Header.js'
 
 class App extends Component {
   constructor () {
@@ -15,7 +16,7 @@ class App extends Component {
    if(this.state.authenticatedUser) {
      return(
        <div className="App">
-         You are logged in!
+         <Header onSignOut={this.handleSignOut} />
       </div>
      )
     }
@@ -45,8 +46,15 @@ class App extends Component {
   }
 
   handleAuthorization () {
-    this.setState ({
+    this.setState({
       authenticatedUser: this.state.gAuthInstance.currentUser.get()
+    })
+  }
+  handleSignOut () {
+    this.state.gAuthInstance.signOut()
+
+    this.setState({
+      authenticatedUser: null
     })
   }
 }
