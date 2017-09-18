@@ -2,14 +2,16 @@ import React, {Component} from 'react'
 import './Login.css'
 
 class Login extends Component {
-  constuctor () {
+  constructor () {
     super()
 
     this.handleSignIn = this.handleSignIn.bind(this)
   }
+  
   handleSignIn () {
     this.props.gAuthInstance.signIn()
   }
+
   render () {
     if (this.props.gAuthInstance) {
       return (
@@ -30,5 +32,6 @@ class Login extends Component {
     )
   }
 }
+
 
 export default Login

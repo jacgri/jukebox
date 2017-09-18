@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import '../Login.js'
+import Login from './components/Login.js'
 
 class App extends Component {
   constructor () {
@@ -21,9 +21,9 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <Login gAuthInstance={this.state.gAuthInstance}/>
+        <Login gAuthInstance={this.state.gAuthInstance} />
       </div>
-    );
+    )
   }
 
   componentDidMount () {
@@ -41,12 +41,12 @@ class App extends Component {
         this.state.gAuthInstance.isSignedIn.listen(this.handleAuthorization)
         this.handleAuthorization()
       }).catch(error => console.log(error))
-    }
+    })
   }
 
   handleAuthorization () {
     this.setState ({
-      authenticatedUser: this.state. gAuthInstance.currentUser.get()
+      authenticatedUser: this.state.gAuthInstance.currentUser.get()
     })
   }
 }
