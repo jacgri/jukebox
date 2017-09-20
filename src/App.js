@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Login from './components/Login.js'
 import Header from './components/Header.js'
+import Sidebar from './components/Sidebar.js'
 
 class App extends Component {
   constructor () {
@@ -17,6 +18,9 @@ class App extends Component {
      return(
        <div className="App">
          <Header onSignOut={this.handleSignOut} />
+         <div className='split'>
+         <Sidebar />
+        </div>
       </div>
      )
     }

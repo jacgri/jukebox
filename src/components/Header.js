@@ -3,7 +3,6 @@ import SearchInput from './SearchInput'
 import './Header.css'
 
 function Header (props) {
-  render () {
     return (
       <div className="Header">
         <div className="logo">
@@ -19,6 +18,6 @@ function Header (props) {
       </div>
     )
   }
-}
+
 
 export default Header
