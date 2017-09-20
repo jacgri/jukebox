@@ -3,6 +3,9 @@ import './App.css';
 import Login from './components/Login.js'
 import Header from './components/Header.js'
 import Sidebar from './components/Sidebar.js'
+import { Route } from 'react-router-dom'
+import Main from './components/Main'
+import Playlist from './components/Playlist.js'
 
 class App extends Component {
   constructor () {
@@ -21,7 +24,11 @@ class App extends Component {
          <div className='split'>
          <Sidebar />
         </div>
+          <Main>
+            <Route path='/playlists/:playlistId' component={Playlist} />
+          </Main>
       </div>
+
      )
     }
     return (
@@ -29,6 +36,7 @@ class App extends Component {
         <Login gAuthInstance={this.state.gAuthInstance} />
       </div>
     )
+
   }
 
   componentDidMount () {
