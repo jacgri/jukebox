@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 import Login from './components/Login.js'
 import Header from './components/Header.js'
 import Sidebar from './components/Sidebar.js'
 import { Route } from 'react-router-dom'
 import Main from './components/Main'
 import Playlist from './components/Playlist.js'
+import SearchResults from './components/SearchResults.js'
 
 class App extends Component {
   constructor () {
@@ -17,26 +18,25 @@ class App extends Component {
     }
   }
   render () {
-   if(this.state.authenticatedUser) {
-     return(
-       <div className="App">
-         <Header onSignOut={this.handleSignOut} />
-         <div className='split'>
-         <Sidebar />
-        </div>
+    if (this.state.authenticatedUser) {
+      return (
+        <div className="App">
+          <Header onSignOut={this.handleSignOut} />
+          <div className='split'>
+            <Sidebar />
+          </div>
           <Main>
             <Route path='/playlists/:playlistId' component={Playlist} />
+            <Route path="search/:query" component={SearchResults} />
           </Main>
-      </div>
-
-     )
+        </div>
+      )
     }
     return (
       <div className="App">
         <Login gAuthInstance={this.state.gAuthInstance} />
       </div>
     )
-
   }
 
   componentDidMount () {

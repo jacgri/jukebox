@@ -7,7 +7,7 @@ class Login extends Component {
 
     this.handleSignIn = this.handleSignIn.bind(this)
   }
-  
+
   handleSignIn () {
     this.props.gAuthInstance.signIn()
   }

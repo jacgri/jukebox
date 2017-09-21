@@ -13,7 +13,7 @@ class Sidebar extends Component {
   componentDidMount () {
     const youtube = window.gapi.client.youtube
 
-    youtube.channels.list ({
+    youtube.channels.list({
       part: 'id',
       mine: true
     }).then(response => {
@@ -30,21 +30,20 @@ class Sidebar extends Component {
         maxResults: 25,
         part: 'snippet,contentDetails'
       }).then(response => {
-        this.setState ({
+        this.setState({
           playlists: response.result.items
         })
       }).catch(error => console.log(error))
     }).catch(error => console.log(error))
-    }
-
-    render () {
-      return (
-        <div className='Sidebar'>
-          <Playlists playlists={this.state.playlists}/>
-        </div>
-        )
-      }
   }
 
+  render () {
+    return (
+      <div className='Sidebar'>
+        <Playlists playlists={this.state.playlists} />
+      </div>
+    )
+  }
+  }
 
 export default Sidebar

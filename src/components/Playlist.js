@@ -5,20 +5,21 @@ import './Playlist.css'
 class Playlist extends Component {
   constructor () {
     super()
-  
-  this.state = {
-    playlistItems: []
-  }
-  this.getPlaylistItems = this.getPlaylistItems.bind(this)
+
+    this.state = {
+      playlistItems: []
+    }
+
+    this.getPlaylistItems = this.getPlaylistItems.bind(this)
   }
 
-  render() {
+  render () {
     const playlistItems = this.state.playlistItems.map(playlistItem => {
       return (
         <PlaylistItem
-        key={playlistItem.Id}
-        title={playlistItem.snippet.title}
-        videoId={playlistItem.contentDetails.videoId} />
+          key={playlistItem.Id}
+          title={playlistItem.snippet.title}
+          videoId={playlistItem.contentDetails.videoId} />
       )
     })
     return (
@@ -50,7 +51,7 @@ class Playlist extends Component {
     }).then(response => {
       const result = response.result
 
-      if(!result.items || !result.items.length) {
+      if (!result.items || !result.items.length) {
         return
       }
       this.setState({
