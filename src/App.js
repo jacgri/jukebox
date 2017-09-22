@@ -11,6 +11,8 @@ import SearchResults from './components/SearchResults.js'
 class App extends Component {
   constructor () {
     super()
+    this.handleAuthorization = this.handleAuthorization.bind(this)
+    this.handleSignOut = this.handleSignOut.bind(this)
 
     this.state = {
       gAuthInstance: null,
