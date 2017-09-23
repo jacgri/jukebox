@@ -7,6 +7,7 @@ import { Route } from 'react-router-dom'
 import Main from './components/Main'
 import Playlist from './components/Playlist.js'
 import SearchResults from './components/SearchResults.js'
+import NowPlaying from './components/NowPlaying.js'
 
 class App extends Component {
   constructor () {
@@ -18,27 +19,6 @@ class App extends Component {
       gAuthInstance: null,
       authenticatedUser: null
     }
-  }
-  render () {
-    if (this.state.authenticatedUser) {
-      return (
-        <div className="App">
-          <Header onSignOut={this.handleSignOut} />
-          <div className='split'>
-            <Sidebar />
-          </div>
-          <Main>
-            <Route path='/playlists/:playlistId' component={Playlist} />
-            <Route path="search/:query" component={SearchResults} />
-          </Main>
-        </div>
-      )
-    }
-    return (
-      <div className="App">
-        <Login gAuthInstance={this.state.gAuthInstance} />
-      </div>
-    )
   }
 
   componentDidMount () {
@@ -70,6 +50,29 @@ class App extends Component {
     this.setState({
       authenticatedUser: null
     })
+  }
+
+  render () {
+    if (this.state.authenticatedUser) {
+      return (
+        <div className="App">
+          <Header onSignOut={this.handleSignOut} />
+          <div className='split'>
+            <Sidebar />
+          </div>
+          <Main>
+            <Route path="/playlists/:playlistId" component={Playlist} />
+            <Route path="/search/:query" component={SearchResults} />
+          </Main>
+          <NowPlaying />
+        </div>
+      )
+    }
+    return (
+      <div className="App">
+        <Login gAuthInstance={this.state.gAuthInstance} />
+      </div>
+    )
   }
 }
 

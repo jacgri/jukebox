@@ -13,22 +13,6 @@ class Playlist extends Component {
     this.getPlaylistItems = this.getPlaylistItems.bind(this)
   }
 
-  render () {
-    const playlistItems = this.state.playlistItems.map(playlistItem => {
-      return (
-        <PlaylistItem
-          key={playlistItem.Id}
-          title={playlistItem.snippet.title}
-          videoId={playlistItem.contentDetails.videoId} />
-      )
-    })
-    return (
-      <div className='Playlist'>
-        {playlistItems}
-      </div>
-    )
-  }
-
   componentDidMount () {
     const playlistId = this.props.match.params.playlistId
 
@@ -58,6 +42,22 @@ class Playlist extends Component {
         playlistItems: result.items
       })
     }).catch(error => console.log(error))
+  }
+
+  render () {
+    const playlistItems = this.state.playlistItems.map(playlistItem => {
+      return (
+        <PlaylistItem
+          key={playlistItem.id}
+          title={playlistItem.snippet.title}
+          videoId={playlistItem.contentDetails.videoId} />
+      )
+    })
+    return (
+      <div className='Playlist'>
+        {playlistItems}
+      </div>
+    )
   }
 }
 

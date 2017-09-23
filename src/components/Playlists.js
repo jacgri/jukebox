@@ -5,7 +5,7 @@ import './Playlists.css'
 function Playlists (props) {
   const playlistLinks = props.playlists.map(function (playlist) {
     return (
-      <Link key={playlist.id} to={'/playlists/${playlist.id}'} className="playlist">
+      <Link key={playlist.id} to={`/playlists/${playlist.id}`} className="playlist">
         {playlist.snippet.title}
       </Link>
     )

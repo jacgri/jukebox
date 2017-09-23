@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PlaylistItem from './PlaylistItem'
 import './SearchResults.css'
 
@@ -44,9 +44,9 @@ class SearchResults extends Component {
       })
     }).catch(error => console.log(error))
   }
-  
+
   render () {
-    const searchResults = this.state.searchResults.map((searchResult, index) =>{
+    const searchResults = this.state.searchResults.map((searchResult, index) => {
       console.log(searchResult)
       return (
         <PlaylistItem key={index} title={searchResult.snippet.title} videoId={searchResult.id.videoId} />
