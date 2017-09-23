@@ -59,12 +59,12 @@ class App extends Component {
           <Header onSignOut={this.handleSignOut} />
           <div className='split'>
             <Sidebar />
+            <NowPlaying />
           </div>
           <Main>
             <Route path="/playlists/:playlistId" component={Playlist} />
             <Route path="/search/:query" component={SearchResults} />
           </Main>
-          <NowPlaying />
         </div>
       )
     }

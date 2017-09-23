@@ -18,7 +18,7 @@ class SearchResults extends Component {
     this.getSearchResults(query)
   }
 
-  componentWillRecieveProps (nextProps) {
+  componentWillReceiveProps (nextProps) {
     const query = nextProps.match.params.query
 
     this.getSearchResults(query)
@@ -47,7 +47,6 @@ class SearchResults extends Component {
 
   render () {
     const searchResults = this.state.searchResults.map((searchResult, index) => {
-      console.log(searchResult)
       return (
         <PlaylistItem key={index} title={searchResult.snippet.title} videoId={searchResult.id.videoId} />
       )
