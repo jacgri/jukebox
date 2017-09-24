@@ -2,4 +2,29 @@
   background-color: #2C2C2C;
   padding: 10px;
   height: 95px;
+  display: table;
+  width: 100%;
+}
+
+.NowPlaying > .video {
+  display: table-cell;
+  width: 1%;
+  vertical-align: middle;
+}
+
+.NowPlaying > .controls {
+  display: table-cell;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.NowPlaying > .controls > .fa {
+  margin: 0 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.NowPlaying > .controls > .fa:hover {
+  color: #FF0000;
 }

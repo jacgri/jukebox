@@ -1,25 +1,39 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './NowPlaying.css'
 import YouTube from 'react-youtube'
 
-function NowPlaying (props) {
-  const playerOptions = {
-    height: '75',
-    width: '135',
-    playerVars: {
-      autoplay: 1
-    }
+class NowPlaying extends Component {
+  getVideoEvent (event) {
+    window.YTPlayer = event.target
   }
-  return (
-    <div className="NowPlaying">
-      <div className="video">
-        <YouTube videoId={props.videoId} opts={playerOptions} />
+  playVideo () {
+    window.YTPlayer.playVideo()
+  }
+  pauseVideo () {
+    window.YTPlayer.pauseVideo()
+  }
+
+  render () {
+    const opts = {
+      height: '75',
+      width: '135',
+      playerVars: {
+        autoplay: 1
+      }
+    }
+    return (
+      <div className="NowPlaying">
+        <div className="video">
+          <YouTube videoId={this.props.videoId} opts={opts} onReady={this.getVideoEvent} />
+        </div>
+        <div className="controls">
+          <i className={`fa fa-play`} aria-hidden="true" onClick={this.playVideo}></i>
+          <i className={`fa fa-pause`} aria-hidden="true" onClick={this.pauseVideo}></i>
+        </div>
       </div>
-      <div className="controls">
-      </div>
-    </div>
-  )
+    )
+  }
 }
 
 function mapStateToProps (state) {
