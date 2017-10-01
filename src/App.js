@@ -8,6 +8,7 @@ import Main from './components/Main'
 import Playlist from './components/Playlist.js'
 import SearchResults from './components/SearchResults.js'
 import NowPlaying from './components/NowPlaying.js'
+import Home from './components/Home.js'
 
 class App extends Component {
   constructor () {
@@ -64,6 +65,7 @@ class App extends Component {
           <Main>
             <Route path="/playlists/:playlistId" component={Playlist} />
             <Route path="/search/:query" component={SearchResults} />
+            <Route path="/" component={Home} />
           </Main>
         </div>
       )
